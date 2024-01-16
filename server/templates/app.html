@@ -7,12 +7,7 @@
         {% block head %}{% endblock %}
     </head>
     <body>
-        <script type="module">
-            import init, { greet } from "./pkg/web.js";
-            init().then(() => {
-                greet("WebAssembly");
-            });
-        </script>
+        {% block script %}{% endblock %}
         <div id="content">
             {% block content %}<p>Placeholder content</p>{% endblock %}
         </div>

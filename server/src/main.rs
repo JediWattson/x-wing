@@ -1,7 +1,7 @@
 use std::net::SocketAddr;
-use hyper::{server::conn::http1, service::service_fn};
 use hyper_util::rt::TokioIo;
 use tokio::net::TcpListener;
+use hyper::{server::conn::http1, service::service_fn};
 
 mod handler;
 pub use handler::on_req;

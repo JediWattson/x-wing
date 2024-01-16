@@ -2,7 +2,18 @@
 
 {% block title %} - Home{% endblock %}
 
+{% block script %}
+    <script type="module">
+        import init, { media_init } from "./pkg/web.js";
+        init().then(() => {
+            const prev = document.getElementById("preview");
+            document.getElementById("startButton").addEventListener("click", () => media_init());
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
-    <h1>Hello {{name}}</h1>
-    <p>Welcome to Project X-Wing!</p>
+    <h4>Welcome to Project X-Wing!</h4>
+    <video id="preview"" width="320" height="240" controls></video>
+    <button id="startButton">Record</button>
 {% endblock %}
