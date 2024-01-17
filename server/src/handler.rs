@@ -1,5 +1,5 @@
 use std::{convert::Infallible, fs};
-use hyper::{body::{Bytes, Frame, Incoming}, Request, Response};
+use hyper::{body::{Bytes, Incoming}, Request, Response};
 use http_body_util::{Full, BodyExt};
 use askama::Template;
 
@@ -35,8 +35,7 @@ async fn get_content_type(req: Request<Incoming>) -> (String, Full<Bytes>) {
     if path == "/video_upload" {
         let body = req.into_body().collect().await.unwrap();
         let collect = body.collect().await.unwrap();
-        let data = String::from_utf8(collect.to_bytes().to_vec()).unwrap();
-        return (String::from("application/json"), Full::new(data.into()));
+        return (String::from("multipart/form-data"), Full::new(collect.to_bytes()));
     }
 
     let contents = match extension {

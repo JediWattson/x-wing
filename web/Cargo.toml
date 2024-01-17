@@ -23,6 +23,8 @@ features = [
     'MediaDevices',
     'BlobEvent',
     'Blob',
+    'FormData',
+    'Headers',
     'console',
     'MediaStream',
     'MediaStreamConstraints',
