@@ -4,16 +4,24 @@
 
 {% block script %}
     <script type="module">
-        import init, { media_init } from "./pkg/web.js";
+        import init, { XWing } from "./pkg/web.js";
         init().then(() => {
+            const xwing = new XWing();
+            console.log(xwing);
             const prev = document.getElementById("preview");
-            document.getElementById("startButton").addEventListener("click", () => media_init());
+            document.getElementById("startButton").addEventListener("click", () => xwing.start());
+            // document.getElementById("startButton").addEventListener("click", () => recorder?.stop());
         });
     </script>
 {% endblock %}
 
 {% block content %}
-    <h4>Welcome to Project X-Wing!</h4>
-    <video id="preview"" width="320" height="240" controls></video>
-    <button id="startButton">Record</button>
+    <div class="video-container">
+        <h4>Welcome to Project X-Wing!</h4>
+        <video id="preview"" width="320" height="240" controls></video>
+        <di class="video-controls">
+            <button id="startButton">Record</button>
+            <button id="stopButton">Stop</button>
+        </di>
+    </div>
 {% endblock %}

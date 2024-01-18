@@ -1502,7 +1502,6 @@ version = "0.1.0"
 dependencies = [
  "futures 0.3.30",
  "js-sys",
- "serde_json",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
